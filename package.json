@@ -1,0 +1,41 @@
+{
+  "name": "switchr",
+  "version": "1.0.0",
+  "description": "The switch statement alternative",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaserockwell/switcher.git"
+  },
+  "keywords": [
+    "switchr",
+    "switch statement",
+    "switch",
+    "switch case",
+    "switcher"
+  ],
+  "author": "Chase Kitteridge",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chaserockwell/switcher/issues"
+  },
+  "homepage": "https://github.com/chaserockwell/switcher#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.4.0",
+    "typescript": "^4.0.3"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
