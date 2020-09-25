@@ -2,7 +2,7 @@ import Switchr from './interfaces/switchr';
 import { ArrCase, Key, ObjCase } from './types/types';
 import { caseFinder, getDefault, getValue, initCases } from './utils';
 
-export function switchr(cases: ArrCase[] | ObjCase): Switchr {
+export default function switchr(cases: ArrCase[] | ObjCase): Switchr {
   const _cases = initCases(cases);
   const findCase = caseFinder(_cases);
   let _default = findCase('default');
