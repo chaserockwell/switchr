@@ -7,7 +7,7 @@ interface GetOptions {
 }
 
 export function get(options: GetOptions): any {
-  return function (key: Key, ...args: any[]) {
+  return (key: Key, ...args: any[]) => {
     const _case = options.findCase(key);
     if (_case) {
       return getValue(_case, ...args);

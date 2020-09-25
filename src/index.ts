@@ -2,10 +2,10 @@ import Switchr from './interfaces/switchr';
 import { ArrCase, Key, ObjCase } from './types/types';
 import { caseFinder, getDefault, getValue, initCases } from './utils';
 
-function switchr(cases: ArrCase[] | ObjCase): Switchr {
+export function switchr(cases: ArrCase[] | ObjCase): Switchr {
   const _cases = initCases(cases);
   const findCase = caseFinder(_cases);
-  let _default = findCase("default");
+  let _default = findCase('default');
 
   return {
     get(key: Key, ...args: any[]): any {
@@ -18,13 +18,13 @@ function switchr(cases: ArrCase[] | ObjCase): Switchr {
     },
     set(key: Key, value: any) {
       _cases[key] = value;
-      if (key === "default") {
+      if (key === 'default') {
         _default = value;
       }
     },
     has(key: Key): boolean {
       for (const switchKey in _cases) {
-        if (switchKey == key) {
+        if (switchKey === key.toString()) {
           return true;
         }
       }
@@ -34,12 +34,12 @@ function switchr(cases: ArrCase[] | ObjCase): Switchr {
     list(): string[] {
       const keys = [];
       for (const key in _cases) {
-        keys.push(key);
+        if (Object.prototype.hasOwnProperty.call(_cases, key)) {
+          keys.push(key);
+        }
       }
 
       return keys;
     },
   };
 }
-
-export default switchr;

@@ -1,4 +1,4 @@
-import switchr from '../index';
+import { switchr } from '../index';
 
 describe("Switchr", () => {
   test("can init with object options", () => {
