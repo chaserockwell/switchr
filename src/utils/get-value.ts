@@ -1,8 +1,8 @@
 import { ObjCase } from '../types/types';
 
-export function getValue(value: any, ...args: any[]): any {
+export function getValue(this: any, value: any, ...args: any[]): any {
   if (typeof value === 'function') {
-    return value.call(globalThis, ...args);
+    return value.call(this, ...args);
   }
 
   return value;
