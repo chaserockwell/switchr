@@ -42,7 +42,7 @@ import switchr from 'switchr'; /* ES6 */
 const switchr = require('switchr').default; /* require */
 ```
 
-- Switchr can be initialized with either an object (recommended) or array for ultimate flexibility:
+- Switchr can be initialized with either an object or array for ultimate flexibility:
 
 ```javascript
 // Object
@@ -62,6 +62,25 @@ const switchrArray = switchr([
     value: 'bar'
   }
 ]);
+```
+
+- Initializing with an array will allow common functionality between multiple cases using the keys property:
+```javascript
+const switchrArray = switchr([
+  {
+    keys: ['one', 'two', 'three'],
+    value: 1
+  },
+  {
+    key: 'four',
+    value: 4
+  }
+]);
+
+switchrArray.get('one'); // 1
+switchrArray.get('two'); // 1
+switchrArray.get('three'); // 1
+switchrArray.get('four'); // 4
 ```
 
 - It also accepts functions as values

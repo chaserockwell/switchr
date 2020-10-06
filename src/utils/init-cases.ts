@@ -3,9 +3,16 @@ import { ArrCase, ObjCase } from '../types/types';
 export function initCases(newCases: ArrCase[] | ObjCase): ObjCase {
   if (Array.isArray(newCases)) {
     const newObjCases: ObjCase = {};
-    for (const newCase of newCases) {
-      if (newCase.key && newCase.value) {
-        newObjCases[newCase.key] = newCase.value;
+    for (const _case of newCases) {
+      if (_case.key && _case.keys) {
+        throw({ SWITCHR_KEY_ERROR: 'Both `key` and `keys` properties cannot be used on the same case'});
+      }
+      if (_case.key && _case.value) {
+        newObjCases[_case.key] = _case.value;
+      } else if (_case.keys && _case.value) {
+        for (const key of _case.keys) {
+          newObjCases[key] = _case.value;
+        }
       }
     }
 
