@@ -11,10 +11,10 @@ npm install switchr
 ## Usage
 
 ### Methods
-- Get(#get)
-- Set(#set)
-- Has(#has)
-- List(#list)
+- [Get](#get)
+- [Set](#set)
+- [Has](#has)
+- [List](#list)
 
 ### Basic Usage
 ```javasdcript
