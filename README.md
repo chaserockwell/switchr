@@ -141,7 +141,7 @@ setSwitchr.get('bar'); // 'bar'
 
 - `set` also accepts a callback function:
 ```javascript
-function multiply(a, b): number {
+function multiply(a, b) {
   return a * b;
 }
 
